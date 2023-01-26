@@ -10,7 +10,7 @@ const ErrorPage = () => {
     <Container>
       <div className="errorWrapper">
         <div className="imgBox">
-          <img src="images/404.png" alt="" />
+          <img src="/images/404.png" alt="" />
         </div>
         <div className="contentsWrapper">
           <p className="errorTitle">{error.status}</p>
