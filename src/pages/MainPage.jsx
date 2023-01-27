@@ -1,12 +1,17 @@
 import React from "react";
-import Header from "../components/base/Header";
+import Paging from "../components/common/Paging";
+import DefaultLayout from "../components/layout/DefaultLayout";
+import List from "../components/List";
 import MainBannerSlider from "../components/MainBannerSlider";
+import MainListContainer from "../container/MainListContainer";
 
 const MainPage = () => {
   return (
     <div>
-      <Header />
-      <MainBannerSlider />
+      <DefaultLayout>
+        <MainBannerSlider />
+        <MainListContainer />
+      </DefaultLayout>
     </div>
   );
 };
