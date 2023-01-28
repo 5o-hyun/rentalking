@@ -22,6 +22,7 @@ const LIstItem = (props) => {
   );
 };
 const Container = styled.div`
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   aspect-ratio: 1 / 1;
   position: relative;
   overflow: hidden;
@@ -37,7 +38,7 @@ const Container = styled.div`
   }
   @media screen and (max-width: 767px) {
     overflow: visible;
-    aspect-ratio: 1 / 1.8;
+    aspect-ratio: 1 / 1.5;
   }
   .listItemImgContainer {
     position: absolute;
@@ -67,6 +68,8 @@ const Container = styled.div`
     justify-content: center;
     @media screen and (max-width: 767px) {
       position: static;
+      padding: 0 10px;
+      box-sizing: border-box;
     }
     p.brandName {
       font-size: 14px;

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import LIstItem from "./LIstItem";
 
-const List = () => {
+const List = ({ postPerPage, page }) => {
   const [products, setProducts] = useState();
   useEffect(() => {
     axios
@@ -21,17 +21,19 @@ const List = () => {
   //   console.log(products);
   return (
     <Container>
-      {products.map((product) => (
-        <LIstItem
-          key={product.id}
-          imgPath={product.imgPath}
-          brandName={product.brandName}
-          name={product.name}
-          subName={product.subName}
-          price={product.price}
-          minPrice={product.minPrice}
-        />
-      ))}
+      {products
+        .slice(postPerPage * (page - 1), postPerPage * (page - 1) + postPerPage)
+        .map((product) => (
+          <LIstItem
+            key={product.id}
+            imgPath={product.imgPath}
+            brandName={product.brandName}
+            name={product.name}
+            subName={product.subName}
+            price={product.price}
+            minPrice={product.minPrice}
+          />
+        ))}
     </Container>
   );
 };

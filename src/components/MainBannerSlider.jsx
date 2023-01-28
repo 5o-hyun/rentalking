@@ -60,6 +60,7 @@ const Container = styled.div``;
 const StyledSwiper = styled(Swiper)`
   width: 1200px;
   height: 520px;
+  margin-bottom: 50px;
   @media screen and (max-width: 1200px) {
     width: 100%;
     height: auto;
