@@ -10,19 +10,15 @@ const MainBannerSlider = () => {
   const banners = [
     {
       id: 1,
-      imgPath: "https://via.placeholder.com/1200x500/004262?text=banner1",
+      imgPath: "images/banner01.jpg",
     },
     {
       id: 2,
-      imgPath: "https://via.placeholder.com/1200x500/007AB5?text=banner2",
+      imgPath: "images/banner02.jpg",
     },
     {
       id: 3,
-      imgPath: "https://via.placeholder.com/1200x500/005A85?text=banner3",
-    },
-    {
-      id: 4,
-      imgPath: "https://via.placeholder.com/1200x500/D8E6EC?text=banner4",
+      imgPath: "images/banner03.jpg",
     },
   ];
   return (
