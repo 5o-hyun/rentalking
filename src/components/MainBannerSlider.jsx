@@ -58,9 +58,9 @@ const MainBannerSlider = () => {
 const Container = styled.div``;
 
 const StyledSwiper = styled(Swiper)`
-  width: 1200px;
-  height: 520px;
-  margin-bottom: 50px;
+  width: 120rem;
+  height: 52rem;
+  margin-bottom: 5rem;
   @media screen and (max-width: 1200px) {
     width: 100%;
     height: auto;
@@ -78,13 +78,13 @@ const StyledSwiper = styled(Swiper)`
   .swiper-pagination {
     .swiper-pagination-bullet {
       background-color: #fff;
-      width: 15px;
-      height: 15px;
-      margin: 0 10px;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0 1rem;
       @media screen and (max-width: 767px) {
-        width: 10px;
-        height: 10px;
-        margin: 0 5px;
+        width: 1rem;
+        height: 1rem;
+        margin: 0 0.5rem;
       }
     }
   }

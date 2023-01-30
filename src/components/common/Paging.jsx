@@ -30,10 +30,10 @@ const Container = styled.div`
   .pagination {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 30px 0;
+    gap: 2rem;
+    margin: 3rem 0;
     @media screen and (max-width: 767px) {
-      gap: 8px;
+      gap: 0.8rem;
     }
   }
 
@@ -44,8 +44,8 @@ const Container = styled.div`
 
   ul.pagination li {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,9 +54,9 @@ const Container = styled.div`
   }
 
   ul.pagination li:first-child {
-    margin-top: 5px;
-    width: 19px;
-    height: 19px;
+    margin-top: 0.5rem;
+    width: 1.9rem;
+    height: 1.9rem;
     a,
     svg {
       width: 100%;
@@ -66,9 +66,9 @@ const Container = styled.div`
   }
 
   ul.pagination li:last-child {
-    margin-top: 7px;
-    width: 19px;
-    height: 19px;
+    margin-top: 0.7rem;
+    width: 1.9rem;
+    height: 1.9rem;
     a,
     svg {
       width: 100%;
@@ -82,7 +82,7 @@ const Container = styled.div`
   ul.pagination li a {
     text-decoration: none;
     color: #212721;
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
   ul.pagination li.active a {
     color: white;
@@ -93,8 +93,8 @@ const Container = styled.div`
     font-weight: bold;
   }
   .page-selection {
-    width: 48px;
-    height: 30px;
+    width: 4.8rem;
+    height: 3rem;
     color: #337ab7;
   }
 `;

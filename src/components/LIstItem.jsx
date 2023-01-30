@@ -22,7 +22,7 @@ const LIstItem = (props) => {
   );
 };
 const Container = styled.div`
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 0.2rem 0.8rem 0px;
   aspect-ratio: 1 / 1;
   position: relative;
   overflow: hidden;
@@ -68,58 +68,58 @@ const Container = styled.div`
     justify-content: center;
     @media screen and (max-width: 767px) {
       position: static;
-      padding: 0 10px;
+      padding: 0 1rem;
       box-sizing: border-box;
     }
     p.brandName {
-      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #757575;
-      margin-bottom: 5px;
+      margin-bottom: 0.5rem;
       @media screen and (max-width: 767px) {
-        font-size: 12px;
-        margin-bottom: 3px;
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
       }
     }
     p.name {
-      font-size: 16px;
+      font-size: 1.6rem;
       font-weight: bold;
       color: #212721;
-      margin-bottom: 5px;
+      margin-bottom: 0.5rem;
       text-align: center;
       @media screen and (max-width: 767px) {
-        font-size: 14px;
-        margin-bottom: 3px;
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
       }
     }
     p.subName {
-      font-size: 14px;
+      font-size: 1.4rem;
       color: #212721;
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
       @media screen and (max-width: 767px) {
-        font-size: 12px;
-        margin-bottom: 8px;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
       }
     }
     .priceContainer {
       display: flex;
       align-items: center;
       p.price {
-        font-size: 14px;
+        font-size: 1.4rem;
         color: #757575;
         text-decoration: line-through;
         text-decoration-color: #212721;
-        margin-right: 4px;
+        margin-right: 0.4rem;
         @media screen and (max-width: 767px) {
-          font-size: 12px;
+          font-size: 1.2rem;
         }
       }
       p.minPrice {
-        font-size: 16px;
+        font-size: 1.6rem;
         font-weight: bold;
         color: #212721;
         @media screen and (max-width: 767px) {
-          font-size: 14px;
+          font-size: 1.4rem;
         }
       }
     }

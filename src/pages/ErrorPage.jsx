@@ -30,7 +30,7 @@ const Container = styled.div`
   background-color: #ddd;
   display: grid;
   .errorWrapper {
-    width: 768px;
+    width: 76.8rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -38,10 +38,10 @@ const Container = styled.div`
     align-items: center;
     margin: auto;
     @media screen and (max-width: 769px) {
-      width: 320px;
+      width: 32rem;
     }
     .imgBox {
-      width: 100px;
+      width: 10rem;
       aspect-ratio: 1 / 1;
       display: flex;
       justify-content: center;
@@ -58,20 +58,20 @@ const Container = styled.div`
       p.errorTitle {
         color: #212721;
         font-weight: bold;
-        font-size: 60px;
+        font-size: 6rem;
       }
       p.errorDesc {
         color: #212721;
-        margin-bottom: 14px;
+        margin-bottom: 1.4rem;
       }
       .errorBtn {
         text-transform: capitalize;
-        border: 1px solid #54565a;
+        border: 0.1rem solid #54565a;
         color: #54565a;
-        width: 150px;
-        height: 40px;
-        border-radius: 30px;
-        font-size: 14px;
+        width: 15rem;
+        height: 4rem;
+        border-radius: 3rem;
+        font-size: 1.4rem;
         background-color: transparent;
         transition: all 0.5s;
         &:hover {

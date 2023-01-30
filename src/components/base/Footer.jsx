@@ -59,13 +59,13 @@ const Footer = () => {
 };
 const Container = styled.footer`
   width: 100%;
-  padding: 40px 0;
+  padding: 4rem 0;
   display: grid;
-  margin-top: 20px;
-  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  border-top: 0.1rem solid #ddd;
   box-sizing: border-box;
   @media screen and (max-width: 767px) {
-    padding: 20px 0;
+    padding: 2rem 0;
   }
   .footerContainer {
     place-self: center;
@@ -73,16 +73,16 @@ const Container = styled.footer`
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
+      gap: 2rem;
+      margin-bottom: 2rem;
       @media screen and (max-width: 767px) {
         gap: 0;
       }
       .logo {
         filter: grayscale(100%);
-        width: 150px;
+        width: 15rem;
         @media screen and (max-width: 767px) {
-          width: 100px;
+          width: 10rem;
         }
         img {
           width: 100%;
@@ -91,24 +91,25 @@ const Container = styled.footer`
         }
       }
       .footerDesc {
-        max-width: 300px;
+        max-width: 30rem;
         p {
-          font-size: 14px;
+          font-size: 1.4rem;
           color: #212721;
           text-align: center;
           @media screen and (max-width: 767px) {
-            font-size: 12px;
+            font-size: 1.2rem;
+            line-height: 1.6;
           }
         }
       }
       ul.snsGroup {
         display: flex;
-        gap: 20px;
+        gap: 2rem;
         @media screen and (max-width: 767px) {
-          margin-top: 20px;
+          margin-top: 2rem;
         }
         li {
-          width: 25px;
+          width: 2.5rem;
           aspect-ratio: 1 / 1;
           display: flex;
           justify-content: center;
@@ -121,6 +122,10 @@ const Container = styled.footer`
               height: 100%;
               cursor: pointer;
               color: #757575;
+              &:hover,
+              &:active {
+                color: #212721;
+              }
             }
           }
         }
@@ -128,11 +133,11 @@ const Container = styled.footer`
     }
     .copyright {
       text-align: center;
-      font-size: 12px;
-      padding: 5px 0;
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
       color: #757575;
       @media screen and (max-width: 767px) {
-        font-size: 10px;
+        font-size: 1rem;
       }
       .bold {
         text-transform: uppercase;

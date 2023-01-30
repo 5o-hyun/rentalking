@@ -69,10 +69,10 @@ const Container = styled.header`
   .top {
     position: fixed;
     width: 100%;
-    height: 100px;
+    height: 10rem;
     z-index: 999;
     &.scroll {
-      height: 60px;
+      height: 6rem;
       background-color: rgba(255, 255, 255, 0.7);
     }
     .navigation {
@@ -80,13 +80,13 @@ const Container = styled.header`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 40px;
+      padding: 0 4rem;
       @media screen and (max-width: 767px) {
-        padding: 0 20px;
+        padding: 0 2rem;
       }
       .right {
-        width: 30px;
-        height: 30px;
+        width: 3rem;
+        height: 3rem;
         position: relative;
         svg {
           position: absolute;
@@ -98,40 +98,40 @@ const Container = styled.header`
           width: 0;
           height: 100%;
           border: 0;
-          border-radius: 10px;
-          padding: 0 0 0 10px;
+          border-radius: 1rem;
+          padding: 0 0 0 1rem;
           z-index: 1;
           transition: 0.5s;
           background-color: transparent;
           &.hover {
             background-color: #ddd;
             display: block;
-            width: 150px;
+            width: 15rem;
           }
         }
       }
       svg {
-        width: 30px;
-        height: 30px;
+        width: 3rem;
+        height: 3rem;
         cursor: pointer;
         @media screen and (max-width: 767px) {
-          width: 25px;
-          height: 25px;
+          width: 2.5rem;
+          height: 2.5rem;
         }
       }
     }
   }
   h1.headerLogo {
     text-align: center;
-    padding: 100px 0 10px;
+    padding: 10rem 0 1rem;
     &.scroll {
-      padding: 60px 0 10px;
+      padding: 6rem 0 1rem;
     }
     a {
-      width: 300px;
+      width: 30rem;
       display: inline-block;
       @media screen and (max-width: 767px) {
-        width: 250px;
+        width: 25rem;
       }
       img {
         width: 100%;
@@ -149,15 +149,16 @@ const Container = styled.header`
       transform: translateX(-50%);
     }
     ul {
-      width: 450px;
-      height: 60px;
+      width: 45rem;
+      height: 6rem;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 1.6rem;
       @media screen and (max-width: 767px) {
-        width: 280px;
-        font-size: 14px;
+        width: 28rem;
+        font-size: 1.4rem;
       }
       li {
         a {

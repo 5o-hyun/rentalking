@@ -17,13 +17,13 @@ const DefaultLayout = ({ children }) => {
 
 const Container = styled.div``;
 const Wrapper = styled.div`
-  width: 1200px;
+  width: 120rem;
   margin: 0 auto;
   @media screen and (max-width: 1200px) {
-    width: calc(100% - 80px);
+    width: calc(100% - 8rem);
   }
   @media screen and (max-width: 767px) {
-    width: calc(100% - 40px);
+    width: calc(100% - 4rem);
   }
 `;
 const Main = styled.main``;
