@@ -22,6 +22,9 @@ const Header = () => {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
+
+  const [isHovering, setIsHovering] = useState(0);
+
   return (
     <Container>
       <div className={position > 250 ? "top scroll" : "top"}>
@@ -47,12 +50,32 @@ const Header = () => {
         </Link>
       </h1>
       <nav className={position > 250 ? "headerNav scroll" : "headerNav"}>
-        <ul>
+        <ul className={isHovering ? "mainTabMenu tabHover" : "mainTabMenu"}>
           <li>
             <Link to={`#`}>about us</Link>
           </li>
-          <li>
+          <li
+            onMouseOver={() => setIsHovering(true)}
+            onMouseOut={() => setIsHovering(false)}
+          >
             <Link to={`#`}>product</Link>
+
+            <div className="subMenuContainer">
+              <ul className="subTabMenu">
+                <li>
+                  <Link>생활가전</Link>
+                </li>
+                <li>
+                  <Link>뷰티&amp;헬스</Link>
+                </li>
+                <li>
+                  <Link>취미</Link>
+                </li>
+                <li>
+                  <Link>생활용품</Link>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <Link to={`#`}>event</Link>
@@ -70,7 +93,7 @@ const Container = styled.header`
     position: fixed;
     width: 100%;
     height: 10rem;
-    z-index: 999;
+    z-index: 93;
     &.scroll {
       height: 6rem;
       background-color: rgba(255, 255, 255, 0.7);
@@ -90,7 +113,7 @@ const Container = styled.header`
         position: relative;
         svg {
           position: absolute;
-          z-index: 2;
+          z-index: 92;
         }
         input {
           position: absolute;
@@ -100,7 +123,7 @@ const Container = styled.header`
           border: 0;
           border-radius: 1rem;
           padding: 0 0 0 1rem;
-          z-index: 1;
+          z-index: 91;
           transition: 0.5s;
           background-color: transparent;
           &.hover {
@@ -143,28 +166,64 @@ const Container = styled.header`
   nav.headerNav {
     &.scroll {
       position: fixed;
-      z-index: 999;
+      z-index: 93;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
     }
-    ul {
-      width: 45rem;
+    ul.mainTabMenu {
       height: 6rem;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       font-size: 1.6rem;
+      &.tabHover {
+        padding-bottom: 6rem;
+      }
       @media screen and (max-width: 767px) {
         width: 28rem;
         font-size: 1.4rem;
       }
       li {
+        position: relative;
+        height: 100%;
+        line-height: 6rem;
+        padding: 0 3rem;
+
+        &:hover {
+          .subMenuContainer {
+            display: block;
+          }
+        }
         a {
           text-transform: capitalize;
           font-weight: 300;
           color: #212721;
+        }
+      }
+    }
+    .subMenuContainer {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -6rem;
+      width: fit-content;
+      height: fit-content;
+      background-color: rgba(255, 255, 255, 0.7);
+      ul.subTabMenu {
+        min-width: max-content;
+        display: flex;
+        li {
+          padding: 0 1.5rem;
+          font-size: 1.4rem;
+          a {
+            &:hover {
+              font-weight: bold;
+              color: #f4c300;
+            }
+          }
         }
       }
     }
