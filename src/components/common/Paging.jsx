@@ -1,6 +1,7 @@
 import React from "react";
 import Pagination from "react-js-pagination";
 import styled from "styled-components";
+import { BiArrowBack, BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
 
 const Paging = ({ page, totalProduct, handlePageChange, postPerPage }) => {
   // const [page, setPage] = useState(1);
@@ -15,9 +16,12 @@ const Paging = ({ page, totalProduct, handlePageChange, postPerPage }) => {
         itemsCountPerPage={postPerPage} // 한페이지당 보여줄 아이템 개수
         totalItemsCount={totalProduct ? totalProduct : 0} // 총 아이템 개수
         pageRangeDisplayed={5} // paginator 내에사 보여줄 페이지의 범위
-        prevPageText={"<"} // 이전
-        nextPageText={">"} // 다음
+        prevPageText={<BiArrowBack />} // 이전
+        nextPageText={<BiArrowBack />} // 다음
+        firstPageText={<BiArrowFromRight />}
+        lastPageText={<BiArrowFromLeft />}
         onChange={handlePageChange}
+        itemClassNext="lastBtn" // 다음 버튼 클래스부여
       />
     </Container>
   );
@@ -28,6 +32,9 @@ const Container = styled.div`
     justify-content: center;
     gap: 20px;
     margin: 30px 0;
+    @media screen and (max-width: 767px) {
+      gap: 8px;
+    }
   }
 
   ul {
@@ -39,7 +46,6 @@ const Container = styled.div`
     display: inline-block;
     width: 30px;
     height: 30px;
-    /* border: 1px solid #e2e2e2; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,34 +54,44 @@ const Container = styled.div`
   }
 
   ul.pagination li:first-child {
-    /* border-radius: 5px 0 0 5px; */
+    margin-top: 5px;
+    width: 19px;
+    height: 19px;
+    a,
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   ul.pagination li:last-child {
-    /* border-radius: 0 5px 5px 0; */
+    margin-top: 7px;
+    width: 19px;
+    height: 19px;
+    a,
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-
+  .lastBtn {
+    transform: rotate(180deg);
+  }
   ul.pagination li a {
     text-decoration: none;
     color: #212721;
     font-size: 1rem;
   }
-
   ul.pagination li.active a {
     color: white;
   }
-
   ul.pagination li.active {
     background-color: #f4c300;
     border-radius: 50%;
     font-weight: bold;
   }
-
-  /* ul.pagination li a:hover,
-  ul.pagination li a.active {
-    color: #ffde59;
-  } */
-
   .page-selection {
     width: 48px;
     height: 30px;
