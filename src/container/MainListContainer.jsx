@@ -20,9 +20,9 @@ const MainListContainer = () => {
       })
       .catch((error) => console.log(error));
   }, []);
-  if (!products) {
-    return null;
-  }
+  // if (!products) {
+  //   return null;
+  // }
 
   return (
     <>
