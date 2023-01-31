@@ -10,7 +10,7 @@ const ErrorPage = () => {
     <Container>
       <div className="errorWrapper">
         <div className="imgBox">
-          <img src="/images/404.png" alt="" />
+          <img src="/images/404.gif" alt="" />
         </div>
         <div className="contentsWrapper">
           <p className="errorTitle">{error.status}</p>
@@ -62,6 +62,7 @@ const Container = styled.div`
       }
       p.errorDesc {
         color: #212721;
+        font-size: 1.6rem;
         margin-bottom: 1.4rem;
       }
       .errorBtn {
