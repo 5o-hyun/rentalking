@@ -4,6 +4,12 @@ import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
+  const subMenus = [
+    { id: 1, name: "생활가전" },
+    { id: 2, name: "뷰티&헬스" },
+    { id: 3, name: "취미" },
+    { id: 4, name: "생활용품" },
+  ];
   // 검색 hover
   const [isShow, setIsShow] = useState(false);
   const handleIsShow = (state) => {
@@ -46,7 +52,7 @@ const Header = () => {
       </div>
       <h1 className={position > 250 ? "headerLogo scroll" : "headerLogo"}>
         <Link to={`/`}>
-          <img src="images/logo.png" alt="rentalking" />
+          <img src="/images/logo.png" alt="rentalking" />
         </Link>
       </h1>
       <nav className={position > 250 ? "headerNav scroll" : "headerNav"}>
@@ -62,18 +68,11 @@ const Header = () => {
 
             <div className="subMenuContainer">
               <ul className="subTabMenu">
-                <li>
-                  <Link>생활가전</Link>
-                </li>
-                <li>
-                  <Link>뷰티&amp;헬스</Link>
-                </li>
-                <li>
-                  <Link>취미</Link>
-                </li>
-                <li>
-                  <Link>생활용품</Link>
-                </li>
+                {subMenus.map((subMenu) => (
+                  <li key={subMenu.id}>
+                    <Link to={`/list/${subMenu.id}`}>{subMenu.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </li>
@@ -182,7 +181,6 @@ const Container = styled.header`
         padding-bottom: 6rem;
       }
       @media screen and (max-width: 767px) {
-        width: 28rem;
         font-size: 1.4rem;
       }
       li {
@@ -195,6 +193,9 @@ const Container = styled.header`
           .subMenuContainer {
             display: block;
           }
+        }
+        @media screen and (max-width: 767px) {
+          padding: 0 1rem;
         }
         a {
           text-transform: capitalize;
