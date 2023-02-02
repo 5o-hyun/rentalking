@@ -6,7 +6,7 @@ import Paging from "../components/common/Paging";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import List from "../components/List";
 
-const ListPage = () => {
+const SubListPage = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios.get("https://api.usvillage.co.kr/api/v1/rentals").then((response) => {
@@ -62,4 +62,4 @@ const Title = styled.h2`
   }
 `;
 
-export default ListPage;
+export default SubListPage;

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import LIstItem from "./LIstItem";
 
-const SubListPage = ({ postPerPage, page }) => {
+const List = ({ postPerPage, page }) => {
   const [products, setProducts] = useState();
   useEffect(() => {
     axios
@@ -48,4 +48,4 @@ const Container = styled.div`
   }
 `;
 
-export default SubListPage;
+export default List;
