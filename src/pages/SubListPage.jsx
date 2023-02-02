@@ -19,9 +19,27 @@ const ListPage = () => {
   const [page, setPage] = useState(1); // 현재 페이지. default 값으로 1
   const handlePageChange = (page) => setPage(page);
 
+  // Url
+  const location = useLocation();
+  const queryString = location.search.split("=");
+  queryString.splice(0, 1);
+
+  // category name
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://api.usvillage.co.kr/api/v1/rentals/categories")
+      .then((response) => setCategories(response.data.data));
+  }, []);
+
   return (
     <DefaultLayout>
-      <Title>제목</Title>
+      {categories.map(
+        (category) =>
+          category.id === Number(queryString) && (
+            <Title key={category.id}>{category.name}</Title>
+          )
+      )}
       <List postPerPage={postPerPage} page={page} />
       <Paging
         totalProduct={products.length}

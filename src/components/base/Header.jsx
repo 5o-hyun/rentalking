@@ -2,14 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+import axios from "axios";
 
 const Header = () => {
-  const subMenus = [
-    { id: 1, name: "생활가전" },
-    { id: 2, name: "뷰티&헬스" },
-    { id: 3, name: "취미" },
-    { id: 4, name: "생활용품" },
-  ];
   // 검색 hover
   const [isShow, setIsShow] = useState(false);
   const handleIsShow = (state) => {
@@ -31,6 +26,20 @@ const Header = () => {
 
   const [isHovering, setIsHovering] = useState(0);
 
+  // 서브메뉴
+  const [subMenus, setSubMenus] = useState();
+  useEffect(() => {
+    axios
+      .get("https://api.usvillage.co.kr/api/v1/rentals/categories")
+      .then((response) => {
+        if (response.status === 200) {
+          setSubMenus(response.data.data);
+        }
+      });
+  }, []);
+  if (!subMenus) {
+    return null;
+  }
   return (
     <Container>
       <div className={position > 250 ? "top scroll" : "top"}>
@@ -68,9 +77,11 @@ const Header = () => {
 
             <div className="subMenuContainer">
               <ul className="subTabMenu">
-                {subMenus.map((subMenu) => (
-                  <li key={subMenu.id}>
-                    <Link to={`/list/${subMenu.id}`}>{subMenu.name}</Link>
+                {subMenus.map((subMenu, index) => (
+                  <li key={index}>
+                    <Link to={`/list?categoryId=${subMenu.id}`}>
+                      {subMenu.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -153,7 +164,7 @@ const Container = styled.header`
       width: 30rem;
       display: inline-block;
       @media screen and (max-width: 767px) {
-        width: 25rem;
+        width: 20rem;
       }
       img {
         width: 100%;

@@ -6,12 +6,17 @@ import "./index.css";
 // import App from "./App";
 import MainPage from "./pages/MainPage";
 import reportWebVitals from "./reportWebVitals";
+import SubListPage from "./pages/SubListPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "list",
+    element: <SubListPage />,
   },
 ]);
 
