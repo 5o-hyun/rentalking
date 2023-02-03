@@ -1,24 +1,42 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import LIstItem from "./LIstItem";
 
 const List = ({ postPerPage, page }) => {
   const [products, setProducts] = useState();
+
+  const location = useLocation();
+
   useEffect(() => {
-    axios
-      .get("https://api.usvillage.co.kr/api/v1/rentals")
-      .then((response) => {
-        if (response.status === 200) {
-          setProducts(response.data.data);
-        }
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    if (location.search) {
+      axios
+        .get(
+          "https://api.usvillage.co.kr/api/v1/rentals" + `${location.search}`
+        )
+        .then((response) => {
+          if (response.status === 200) {
+            setProducts(response.data.data);
+          }
+        })
+        .catch((error) => console.log(error));
+    } else if (!location.search) {
+      axios
+        .get("https://api.usvillage.co.kr/api/v1/rentals")
+        .then((response) => {
+          if (response.status === 200) {
+            setProducts(response.data.data);
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [location]);
+
   if (!products) {
     return null;
   }
-  //   console.log(products);
+
   return (
     <Container>
       {products
