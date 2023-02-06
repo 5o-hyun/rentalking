@@ -7,6 +7,7 @@ import "./index.css";
 import MainPage from "./pages/MainPage";
 import reportWebVitals from "./reportWebVitals";
 import SubListPage from "./pages/SubListPage";
+import DetailPage from "./pages/DetailPage";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "list",
     element: <SubListPage />,
+  },
+  {
+    path: "list/:productId",
+    element: <DetailPage />,
   },
 ]);
 

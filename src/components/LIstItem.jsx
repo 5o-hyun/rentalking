@@ -1,24 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const LIstItem = (props) => {
   const s3URL = "https://files.usvillage.co.kr";
-  //   console.log(props);
+  // console.log(props);
   return (
-    <Container>
-      <div className="listItemImgContainer">
-        <img src={`${s3URL}${props.imgPath}`} alt="제품사진" />
-      </div>
-      <div className="listItemContentsContainer">
-        <p className="brandName">[{props.brandName}]</p>
-        <p className="name">{props.name}</p>
-        <p className="subName">{props.subName}</p>
-        <div className="priceContainer">
-          <p className="price">{props.price}원</p>
-          <p className="minPrice">{props.minPrice}원</p>
+    <Link to={`/list/${props.productId}`}>
+      <Container>
+        <div className="listItemImgContainer">
+          <img src={`${s3URL}${props.imgPath}`} alt="제품사진" />
         </div>
-      </div>
-    </Container>
+        <div className="listItemContentsContainer">
+          <p className="brandName">&#91;{props.brandName}&#93;</p>
+          <p className="name">{props.name}</p>
+          <p className="subName">{props.subName}</p>
+          <div className="priceContainer">
+            <p className="price">{props.price}원</p>
+            <p className="minPrice">{props.minPrice}원</p>
+          </div>
+        </div>
+      </Container>
+    </Link>
   );
 };
 const Container = styled.div`

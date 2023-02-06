@@ -50,6 +50,7 @@ const List = ({ postPerPage, page }) => {
             subName={product.subName}
             price={product.price}
             minPrice={product.minPrice}
+            productId={product.id}
           />
         ))}
     </Container>
