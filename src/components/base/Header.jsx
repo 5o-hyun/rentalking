@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
+import Modal from "../Modal";
 
 const Header = () => {
+  // 햄버거메뉴
+  const [isShowModal, setIsShowModal] = useState(false);
+  const handleIsShowModal = (state) => {
+    setIsShowModal(state);
+  };
+
   // 검색 hover
   const [isShow, setIsShow] = useState(false);
   const handleIsShow = (state) => {
@@ -41,61 +48,64 @@ const Header = () => {
     return null;
   }
   return (
-    <Container>
-      <div className={position > 250 ? "top scroll" : "top"}>
-        <div className="navigation">
-          <div className="left">
-            <AiOutlineMenu />
-          </div>
-          <div
-            className="right"
-            onMouseOver={() => handleIsShow(true)}
-            onMouseOut={() => handleIsShow(false)}
-          >
-            <AiOutlineSearch
-              style={isShow && { backgroundColor: "transparent" }}
-            />
-            <input type="text" className={isShow ? "hover" : ""} />
+    <>
+      <Container>
+        <div className={position > 250 ? "top scroll" : "top"}>
+          <div className="navigation">
+            <div className="left">
+              <AiOutlineMenu onClick={() => handleIsShowModal(true)} />
+            </div>
+            <div
+              className="right"
+              onMouseOver={() => handleIsShow(true)}
+              onMouseOut={() => handleIsShow(false)}
+            >
+              <AiOutlineSearch
+                style={isShow && { backgroundColor: "transparent" }}
+              />
+              <input type="text" className={isShow ? "hover" : ""} />
+            </div>
           </div>
         </div>
-      </div>
-      <h1 className={position > 250 ? "headerLogo scroll" : "headerLogo"}>
-        <Link to={`/`}>
-          <img src="/images/logo.png" alt="rentalking" />
-        </Link>
-      </h1>
-      <nav className={position > 250 ? "headerNav scroll" : "headerNav"}>
-        <ul className={isHovering ? "mainTabMenu tabHover" : "mainTabMenu"}>
-          <li>
-            <Link to={`#`}>about us</Link>
-          </li>
-          <li
-            onMouseOver={() => setIsHovering(true)}
-            onMouseOut={() => setIsHovering(false)}
-          >
-            <Link to={`#`}>product</Link>
+        <h1 className={position > 250 ? "headerLogo scroll" : "headerLogo"}>
+          <Link to={`/`}>
+            <img src="/images/logo.png" alt="rentalking" />
+          </Link>
+        </h1>
+        <nav className={position > 250 ? "headerNav scroll" : "headerNav"}>
+          <ul className={isHovering ? "mainTabMenu tabHover" : "mainTabMenu"}>
+            <li>
+              <Link to={`/about`}>about us</Link>
+            </li>
+            <li
+              onMouseOver={() => setIsHovering(true)}
+              onMouseOut={() => setIsHovering(false)}
+            >
+              <Link to={`#`}>product</Link>
 
-            <div className="subMenuContainer">
-              <ul className="subTabMenu">
-                {subMenus.map((subMenu, index) => (
-                  <li key={index}>
-                    <Link to={`/list?categoryId=${subMenu.id}`}>
-                      {subMenu.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-          <li>
-            <Link to={`#`}>event</Link>
-          </li>
-          <li>
-            <Link to={`#`}>contact us</Link>
-          </li>
-        </ul>
-      </nav>
-    </Container>
+              <div className="subMenuContainer">
+                <ul className="subTabMenu">
+                  {subMenus.map((subMenu, index) => (
+                    <li key={index}>
+                      <Link to={`/list?categoryId=${subMenu.id}`}>
+                        {subMenu.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <li>
+              <Link to={`/event`}>event</Link>
+            </li>
+            <li>
+              <Link to={`/contact`}>contact us</Link>
+            </li>
+          </ul>
+        </nav>
+      </Container>
+      {isShowModal && <Modal handleIsShowModal={handleIsShowModal} />}
+    </>
   );
 };
 const Container = styled.header`

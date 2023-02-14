@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiClose } from "react-icons/tfi";
-import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Modal = () => {
+const Modal = ({ handleIsShowModal }) => {
+  // 모달창 show hide
+  const [isCloseModal, setIsCloseModal] = useState(true);
+  const handleIsCloseModal = (state) => {
+    setIsCloseModal(state);
+    handleIsShowModal(state);
+  };
+
+  // 카테고리 데이터 뿌리기
   const [categories, setCategories] = useState();
   useEffect(() => {
     axios
@@ -20,27 +28,45 @@ const Modal = () => {
     return null;
   }
   return (
-    <Container>
-      <div className="modalContainer">
-        <div className="modalTitleWrapper">
-          <CgMenuGridR />
-          <p className="modalTitle">전체카테고리</p>
-        </div>
-        <div className="categoryWrapper">
-          <ul className="categoryGroup">
-            <li className="category">About us</li>
-            {categories.map((category) => (
-              <li key={category.id} className="category">
-                {category.nameEn}
-              </li>
-            ))}
-            <li className="category">Event</li>
-            <li className="category">Contact us</li>
-          </ul>
-        </div>
-        <TfiClose className="closeBtn" />
-      </div>
-    </Container>
+    <>
+      {isCloseModal && (
+        <Container>
+          <div className="modalContainer">
+            <div className="modalTitleWrapper">
+              <CgMenuGridR />
+              <p className="modalTitle">전체카테고리</p>
+            </div>
+            <div className="categoryWrapper">
+              <ul className="categoryGroup">
+                <Link to={`/about`}>
+                  <li className="category">About us</li>
+                </Link>
+                {categories.map((category) => (
+                  <Link
+                    to={`/list?categoryId=${category.id}`}
+                    onClick={() => handleIsCloseModal(false)}
+                  >
+                    <li key={category.id} className="category">
+                      {category.nameEn}
+                    </li>
+                  </Link>
+                ))}
+                <Link to={`/event`}>
+                  <li className="category">Event</li>
+                </Link>
+                <Link to={`/contact`}>
+                  <li className="category">Contact us</li>
+                </Link>
+              </ul>
+            </div>
+            <TfiClose
+              className="closeBtn"
+              onClick={() => handleIsCloseModal(false)}
+            />
+          </div>
+        </Container>
+      )}
+    </>
   );
 };
 const Container = styled.div`
@@ -92,6 +118,7 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-row-gap: 2rem;
+        grid-column-gap: 2rem;
         @media screen and (max-width: 767px) {
           grid-template-columns: repeat(3, 1fr);
           grid-row-gap: 1.6rem;

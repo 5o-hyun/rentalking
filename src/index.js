@@ -8,6 +8,9 @@ import MainPage from "./pages/MainPage";
 import reportWebVitals from "./reportWebVitals";
 import SubListPage from "./pages/SubListPage";
 import DetailPage from "./pages/DetailPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import EventPage from "./pages/EventPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ const router = createBrowserRouter([
   {
     path: "list/:productId",
     element: <DetailPage />,
+  },
+  {
+    path: "about",
+    element: <AboutUsPage />,
+  },
+  {
+    path: "event",
+    element: <EventPage />,
+  },
+  {
+    path: "contact",
+    element: <ContactUsPage />,
   },
 ]);
 
