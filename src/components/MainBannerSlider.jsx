@@ -5,20 +5,24 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Keyboard, Pagination, Autoplay } from "swiper";
+import { Link } from "react-router-dom";
 
 const MainBannerSlider = () => {
   const banners = [
     {
       id: 1,
       imgPath: "images/banner01.jpg",
+      linkPath: "/about",
     },
     {
       id: 2,
       imgPath: "images/banner02.jpg",
+      linkPath: "/contact",
     },
     {
       id: 3,
       imgPath: "images/banner03.jpg",
+      linkPath: "#none",
     },
   ];
   return (
@@ -43,7 +47,9 @@ const MainBannerSlider = () => {
       >
         {banners.map((banner) => (
           <SwiperSlide key={banner.id}>
-            <img src={banner.imgPath} alt="배너" />
+            <Link to={banner.linkPath}>
+              <img src={banner.imgPath} alt="배너" />
+            </Link>
           </SwiperSlide>
         ))}
       </StyledSwiper>
