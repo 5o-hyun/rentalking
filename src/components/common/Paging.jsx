@@ -3,7 +3,13 @@ import Pagination from "react-js-pagination";
 import styled from "styled-components";
 import { BiArrowBack, BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
 
-const Paging = ({ page, totalProduct, handlePageChange, postPerPage }) => {
+const Paging = ({
+  page,
+  totalProduct,
+  handlePageChange,
+  postPerPage,
+  pageRange,
+}) => {
   // const [page, setPage] = useState(1);
   // const handlePageChange = (page) => {
   //   setPage(page);
@@ -14,8 +20,8 @@ const Paging = ({ page, totalProduct, handlePageChange, postPerPage }) => {
       <Pagination
         activePage={page} // 현재페이지
         itemsCountPerPage={postPerPage} // 한페이지당 보여줄 아이템 개수
-        totalItemsCount={totalProduct ? totalProduct : 0} // 총 아이템 개수
-        pageRangeDisplayed={5} // paginator 내에사 보여줄 페이지의 범위
+        totalItemsCount={totalProduct} // 총 아이템 개수
+        pageRangeDisplayed={pageRange} // paginator 내에사 보여줄 페이지의 범위
         prevPageText={<BiArrowBack />} // 이전
         nextPageText={<BiArrowBack />} // 다음
         firstPageText={<BiArrowFromRight />}

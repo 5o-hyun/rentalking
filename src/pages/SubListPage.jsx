@@ -7,22 +7,25 @@ import DefaultLayout from "../components/layout/DefaultLayout";
 import List from "../components/List";
 
 const SubListPage = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    axios.get("https://api.usvillage.co.kr/api/v1/rentals").then((response) => {
-      if (response.status === 200) {
-        setProducts(response.data.data);
-      }
-    });
-  }, []);
-  const [postPerPage] = useState(9); // 한 페이지에 보여질 아이템 수
-  const [page, setPage] = useState(1); // 현재 페이지. default 값으로 1
-  const handlePageChange = (page) => setPage(page);
-
   // Url
   const location = useLocation();
   const queryString = location.search.split("=");
   queryString.splice(0, 1);
+
+  const [products, setProducts] = useState(0);
+  useEffect(() => {
+    axios
+      .get("https://api.usvillage.co.kr/api/v1/rentals" + `${location.search}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setProducts(response.data.data.length);
+        }
+      });
+  }, [location]);
+
+  const [postPerPage] = useState(9); // 한 페이지에 보여질 아이템 수
+  const [page, setPage] = useState(1); // 현재 페이지. default 값으로 1
+  const handlePageChange = (page) => setPage(page);
 
   // category name
   const [categories, setCategories] = useState([]);
@@ -42,10 +45,11 @@ const SubListPage = () => {
       )}
       <List postPerPage={postPerPage} page={page} />
       <Paging
-        totalProduct={products.length}
+        totalProduct={products}
         postPerPage={postPerPage}
         handlePageChange={handlePageChange}
         page={page}
+        pageRange={Math.ceil(products / 9)}
       />
     </DefaultLayout>
   );
