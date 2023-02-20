@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
 import Modal from "../Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategories } from "../../redux/data";
 
 const Header = () => {
   // 햄버거메뉴
@@ -34,17 +36,18 @@ const Header = () => {
   const [isHovering, setIsHovering] = useState(0);
 
   // 서브메뉴
-  const [subMenus, setSubMenus] = useState();
+  const dispatch = useDispatch();
+  const subMenus = useSelector((state) => state.categories);
   useEffect(() => {
     axios
       .get("https://api.usvillage.co.kr/api/v1/rentals/categories")
       .then((response) => {
         if (response.status === 200) {
-          setSubMenus(response.data.data);
+          dispatch(setCategories(response.data.data));
         }
       });
   }, []);
-  if (!subMenus) {
+  if (!subMenus.data) {
     return null;
   }
   return (
@@ -85,7 +88,7 @@ const Header = () => {
 
               <div className="subMenuContainer">
                 <ul className="subTabMenu">
-                  {subMenus.map((subMenu, index) => (
+                  {subMenus.data.map((subMenu, index) => (
                     <li key={index}>
                       <Link to={`/list?categoryId=${subMenu.id}`}>
                         {subMenu.name}
@@ -104,7 +107,9 @@ const Header = () => {
           </ul>
         </nav>
       </Container>
-      {isShowModal && <Modal handleIsShowModal={handleIsShowModal} />}
+      {isShowModal && (
+        <Modal handleIsShowModal={handleIsShowModal} subMenus={subMenus} />
+      )}
     </>
   );
 };

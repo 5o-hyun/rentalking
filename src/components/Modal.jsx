@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiClose } from "react-icons/tfi";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Modal = ({ handleIsShowModal }) => {
+const Modal = ({ handleIsShowModal, subMenus }) => {
   // 모달창 show hide
   const [isCloseModal, setIsCloseModal] = useState(true);
   const handleIsCloseModal = (state) => {
@@ -13,20 +12,6 @@ const Modal = ({ handleIsShowModal }) => {
     handleIsShowModal(state);
   };
 
-  // 카테고리 데이터 뿌리기
-  const [categories, setCategories] = useState();
-  useEffect(() => {
-    axios
-      .get("https://api.usvillage.co.kr/api/v1/rentals/categories")
-      .then((response) => {
-        if (response.status === 200) {
-          setCategories(response.data.data);
-        }
-      });
-  }, []);
-  if (!categories) {
-    return null;
-  }
   return (
     <>
       {isCloseModal && (
@@ -41,13 +26,13 @@ const Modal = ({ handleIsShowModal }) => {
                 <Link to={`/about`}>
                   <li className="category">About us</li>
                 </Link>
-                {categories.map((category) => (
+                {subMenus.data.map((subMenu) => (
                   <Link
-                    to={`/list?categoryId=${category.id}`}
+                    to={`/list?categoryId=${subMenu.id}`}
                     onClick={() => handleIsCloseModal(false)}
                   >
-                    <li key={category.id} className="category">
-                      {category.nameEn}
+                    <li key={subMenu.id} className="category">
+                      {subMenu.nameEn}
                     </li>
                   </Link>
                 ))}

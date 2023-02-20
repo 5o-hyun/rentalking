@@ -2,17 +2,17 @@ import React from "react";
 import QuickScroll from "../components/common/QuickScroll";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import MainBannerSlider from "../components/MainBannerSlider";
-import MainListContainer from "../container/MainListContainer";
+import ListContainer from "../container/ListContainer";
 
 const MainPage = () => {
   return (
-    <div>
+    <>
       <DefaultLayout>
         <MainBannerSlider />
-        <MainListContainer />
+        <ListContainer />
       </DefaultLayout>
       <QuickScroll />
-    </div>
+    </>
   );
 };
 

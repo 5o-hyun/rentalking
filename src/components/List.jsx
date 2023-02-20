@@ -4,42 +4,42 @@ import { useLocation } from "react-router";
 import styled from "styled-components";
 import LIstItem from "./LIstItem";
 
-const List = ({ postPerPage, page }) => {
-  const [products, setProducts] = useState();
+const List = ({ postPerPage, page, products }) => {
+  // const [products, setProducts] = useState();
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  useEffect(() => {
-    if (location.search) {
-      axios
-        .get(
-          "https://api.usvillage.co.kr/api/v1/rentals" + `${location.search}`
-        )
-        .then((response) => {
-          if (response.status === 200) {
-            setProducts(response.data.data);
-          }
-        })
-        .catch((error) => console.log(error));
-    } else if (!location.search) {
-      axios
-        .get("https://api.usvillage.co.kr/api/v1/rentals")
-        .then((response) => {
-          if (response.status === 200) {
-            setProducts(response.data.data);
-          }
-        })
-        .catch((error) => console.log(error));
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   if (location.search) {
+  //     axios
+  //       .get(
+  //         "https://api.usvillage.co.kr/api/v1/rentals" + `${location.search}`
+  //       )
+  //       .then((response) => {
+  //         if (response.status === 200) {
+  //           setProducts(response.data.data);
+  //         }
+  //       })
+  //       .catch((error) => console.log(error));
+  //   } else if (!location.search) {
+  //     axios
+  //       .get("https://api.usvillage.co.kr/api/v1/rentals")
+  //       .then((response) => {
+  //         if (response.status === 200) {
+  //           setProducts(response.data.data);
+  //         }
+  //       })
+  //       .catch((error) => console.log(error));
+  //   }
+  // }, [location]);
 
-  if (!products) {
-    return null;
-  }
+  // if (!products) {
+  //   return null;
+  // }
 
   return (
     <Container>
-      {products
+      {products.data
         .slice(postPerPage * (page - 1), postPerPage * (page - 1) + postPerPage)
         .map((product) => (
           <LIstItem
