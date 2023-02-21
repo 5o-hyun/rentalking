@@ -10,7 +10,6 @@ const AboutUsPage = () => {
   const [position, setPosition] = useState(0);
   function onScroll() {
     setPosition(window.scrollY);
-    console.log(window.scrollY, document.documentElement.scrollTop);
   }
   useEffect(() => {
     window.addEventListener("scroll", onScroll);

@@ -24,7 +24,6 @@ const Header = () => {
   const [position, setPosition] = useState(0);
   function onScroll() {
     setPosition(window.scrollY);
-    // console.log(window.scrollY);
   }
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
