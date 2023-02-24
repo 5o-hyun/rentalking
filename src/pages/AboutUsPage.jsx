@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import { GiKey } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import QuickScroll from "../components/common/QuickScroll";
 
 const AboutUsPage = () => {
   // 윈도우 높이값
@@ -19,77 +20,80 @@ const AboutUsPage = () => {
   }, []);
 
   return (
-    <DefaultLayout>
-      <Intro>
-        <div className="introContents">
-          <p className={position > 0 ? "introEn active" : "introEn"}>
-            About RentalKing
-          </p>
-          <p className={position > 0 ? "introKo active" : "introKo"}>
-            렌탈킹 소개
-          </p>
-        </div>
-      </Intro>
-      <Introduce>
-        <div className="introduceImg">
-          <GiKey />
-        </div>
-        <div className="introduceContents">
-          <p className={position > 200 ? "mainTxt active" : "mainTxt"}>
-            안녕하세요. 렌탈킹입니다.
-            <br />
-            언택트 시대, 생활하는 공간의 중요성이 더욱 부각되는 시기입니다.
-            <br />
-            고객님의 집이라는 공간에 새로운 의미를 부여할 수 있도록
-            <br />
-            고객을 이해하고 대화하기 위해 노력하고 있습니다.
-            <br />
-            부담없이 문의 주시면 최선을 다해서 컨설팅 해드리도록 하겠습니다.
-          </p>
-          <p className={position > 240 ? "detailTxt active" : "detailTxt"}>
-            오랜 기간 노하우를 축적하고 역량을 쌓아온 기술자로 구성되어
-            있습니다.
-            <br />
-            새롭게 시작하는 클라이언트의 입장에서의 완벽한 맞춤설계
-            <br />
-            신속하고 정확한 A/S까지 최고의 기술력과 서비스 정신으로 고객만족
-            극대화를 목표로 다가갈 것을 약속 드립니다.
-          </p>
-          <Link to={"/contact"}>
-            <button>
-              <p>contact us</p>
-              <AiOutlineArrowRight />
-            </button>
-          </Link>
-        </div>
-      </Introduce>
-      <Effort>
-        <div className="box"></div>
-        <div className="box">
-          <div className="boxContents">
-            <p className="boxTitle">enjoy your life</p>
-            <p className="boxDesc">
-              돈이 없어서 못써봤다는 말은 그만!
-              <br />
-              렌탈킹과 함께 "요즘것들"을 누려보세요.
+    <>
+      <DefaultLayout>
+        <Intro>
+          <div className="introContents">
+            <p className={position > 0 ? "introEn active" : "introEn"}>
+              About RentalKing
+            </p>
+            <p className={position > 0 ? "introKo active" : "introKo"}>
+              렌탈킹 소개
             </p>
           </div>
-        </div>
-        <div className="box">
-          <div className="boxContents">
-            <p className="boxTitle">apply for rental king</p>
-            <p className="boxDesc">
-              원하는 물품이 없다고 실망하지마세요.
-              <br />
-              간편하게 신청만 하면,
-              <br />
-              검토 후 고객님들이 많이 필요로 하는것을 즉시 채워드립니다.
-            </p>
+        </Intro>
+        <Introduce>
+          <div className="introduceImg">
+            <GiKey />
           </div>
-        </div>
-        <div className="box"></div>
-      </Effort>
-    </DefaultLayout>
+          <div className="introduceContents">
+            <p className={position > 200 ? "mainTxt active" : "mainTxt"}>
+              안녕하세요. 렌탈킹입니다.
+              <br />
+              언택트 시대, 생활하는 공간의 중요성이 더욱 부각되는 시기입니다.
+              <br />
+              고객님의 집이라는 공간에 새로운 의미를 부여할 수 있도록
+              <br />
+              고객을 이해하고 대화하기 위해 노력하고 있습니다.
+              <br />
+              부담없이 문의 주시면 최선을 다해서 컨설팅 해드리도록 하겠습니다.
+            </p>
+            <p className={position > 240 ? "detailTxt active" : "detailTxt"}>
+              오랜 기간 노하우를 축적하고 역량을 쌓아온 기술자로 구성되어
+              있습니다.
+              <br />
+              새롭게 시작하는 클라이언트의 입장에서의 완벽한 맞춤설계
+              <br />
+              신속하고 정확한 A/S까지 최고의 기술력과 서비스 정신으로 고객만족
+              극대화를 목표로 다가갈 것을 약속 드립니다.
+            </p>
+            <Link to={"/contact"}>
+              <button>
+                <p>contact us</p>
+                <AiOutlineArrowRight />
+              </button>
+            </Link>
+          </div>
+        </Introduce>
+        <Effort>
+          <div className="box"></div>
+          <div className="box">
+            <div className="boxContents">
+              <p className="boxTitle">enjoy your life</p>
+              <p className="boxDesc">
+                돈이 없어서 못써봤다는 말은 그만!
+                <br />
+                렌탈킹과 함께 "요즘것들"을 누려보세요.
+              </p>
+            </div>
+          </div>
+          <div className="box">
+            <div className="boxContents">
+              <p className="boxTitle">apply for rental king</p>
+              <p className="boxDesc">
+                원하는 물품이 없다고 실망하지마세요.
+                <br />
+                간편하게 신청만 하면,
+                <br />
+                검토 후 고객님들이 많이 필요로 하는것을 즉시 채워드립니다.
+              </p>
+            </div>
+          </div>
+          <div className="box"></div>
+        </Effort>
+      </DefaultLayout>
+      <QuickScroll />
+    </>
   );
 };
 const IntroAnimationEn = keyframes`
