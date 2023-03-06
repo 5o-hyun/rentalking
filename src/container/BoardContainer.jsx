@@ -8,6 +8,14 @@ const BoardContainer = () => {
       <BoardItem />
       <BoardItem />
       <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
     </Container>
   );
 };
