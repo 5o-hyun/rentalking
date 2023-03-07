@@ -13,6 +13,7 @@ const EventPage = () => {
   return (
     <DefaultLayout>
       <Subject>event</Subject>
+      {/* 페이지네이션 진행고민중 */}
       <BoardContainer
         postPerPage={postPerPage}
         page={page}
