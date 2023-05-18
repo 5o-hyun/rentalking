@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import styled from "styled-components";
+import DetailTabMenus from "../components/detail/DetailTabMenus";
 
 const DetailPage = () => {
   const [periodActive, setPeriodActive] = useState(1); // 대여기간 Tab active
@@ -39,6 +40,41 @@ const DetailPage = () => {
     });
   }, [products]);
 
+  const [detailImgInfo, setDetailImgInfo] = useState();
+  // 탭 메뉴들
+  const detailTabMenus = [
+    {
+      id: 1,
+      name: "상품설명",
+      content: <DetailTabMenus description={detailImgInfo} />,
+    },
+    {
+      id: 2,
+      name: "이용안내",
+      content: <DetailTabMenus imgPath="/images/detail/detail_howtouse.jpg" />,
+    },
+    {
+      id: 3,
+      name: "유의사항",
+      content: <DetailTabMenus imgPath="/images/detail/detail_notice.jpg" />,
+    },
+  ];
+  const [activeDetailTabMenu, setActiveDetailTabMenu] = useState(1);
+
+  const onClickDetailTabMenu = (detailTabMenuId) => {
+    setActiveDetailTabMenu(detailTabMenuId);
+  };
+
+  useEffect(() => {
+    axios
+      .get("https://api.usvillage.co.kr/api/v1/rentals/" + queryString)
+      .then((response) => {
+        if (response.status === 200) {
+          setDetailImgInfo(response.data.data.description);
+        }
+      });
+  }, []);
+
   if (!selectProduct) {
     return null;
   }
@@ -63,7 +99,6 @@ const DetailPage = () => {
   return (
     <DefaultLayout>
       <Container>
-        {console.log(discountPercent)}
         <p className="detailPath">
           전체 &gt; {selectProduct.categoryParentName}
         </p>
@@ -162,10 +197,80 @@ const DetailPage = () => {
             </button>
           </div>
         </div>
+        <DetailContentsContainer>
+          <ul className="tabMenus">
+            {detailTabMenus.map((detailTabMenu) => (
+              <li
+                key={detailTabMenu.id}
+                className={
+                  activeDetailTabMenu === detailTabMenu.id
+                    ? "tabMenu active"
+                    : "tabMenu"
+                }
+                onClick={() => onClickDetailTabMenu(detailTabMenu.id)}
+              >
+                {detailTabMenu.name}
+              </li>
+            ))}
+          </ul>
+          <div className="contentsWrapper">
+            {detailTabMenus.map(
+              (detailTabMenu) =>
+                activeDetailTabMenu === detailTabMenu.id &&
+                detailTabMenu.content
+            )}
+          </div>
+        </DetailContentsContainer>
       </Container>
     </DefaultLayout>
   );
 };
+const DetailContentsContainer = styled.div`
+  border-top: 0.1rem solid #ddd;
+  padding-top: 4rem;
+  margin-top: 4rem;
+  .tabMenus {
+    width: 70rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    height: 5rem;
+    display: flex;
+    gap: 0.2rem;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      height: 4rem;
+    }
+    .tabMenu {
+      flex: 1;
+      color: #aaa;
+      background-color: #ddd;
+      text-align: center;
+      line-height: 5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      &.active {
+        color: #fff;
+        background-color: #f1c40f;
+      }
+      @media screen and (max-width: 767px) {
+        width: 100%;
+        line-height: 4rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+  .contentsWrapper {
+    width: 70rem;
+    margin: 0 auto;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+    }
+  }
+`;
 const Container = styled.div`
   p.detailPath {
     font-size: 1.4rem;
