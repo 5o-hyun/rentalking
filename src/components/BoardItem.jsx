@@ -1,35 +1,77 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const BoardItem = () => {
+const BoardItem = ({ eventData }) => {
   return (
     <Container>
-      <div className="picture"></div>
-      <div className="boardItemContainer">
-        <p className="date">2023년 02월 28일 - 2023년 03월 01일</p>
-        <p className="title">렌탈킹 렌탈서비스 오픈기념 할인이벤트</p>
-        <p className="desc">
-          렌탈킹과 함께하는 렌탈서비스 오픈 기념! 렌탈킹에서 다양한 제품을
-          렌탈해보세요!렌탈해보세요!렌탈해보세요!
-        </p>
-        <p className="count">조회 637</p>
+      <BoardItemContainer>
+        <div className="picture">
+          <img src={eventData.imgPath} alt="" />
+        </div>
+        <div className="boardItemContainer">
+          <p className="date">
+            {eventData.startDate.split("-")[0]}년{" "}
+            {eventData.startDate.split("-")[1]}월{" "}
+            {eventData.startDate.split("-")[2]}일 -{" "}
+            {eventData.lastDate.split("-")[0]}년{" "}
+            {eventData.lastDate.split("-")[1]}월{" "}
+            {eventData.lastDate.split("-")[2]}일
+          </p>
+          <p className="title">{eventData.title}</p>
+          <p className="desc">{eventData.desc}</p>
+          <p className="count">조회 {eventData.count}</p>
+        </div>
+      </BoardItemContainer>
+      <div className="closeEventContainer">
+        <p>종료된 이벤트 입니다.</p>
       </div>
     </Container>
   );
 };
 const Container = styled.div`
+  position: relative;
   aspect-ratio: 1 / 1.1;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   @media screen and (max-width: 767px) {
-    aspect-ratio: 1 / 0.8;
+    aspect-ratio: initial;
+  }
+  .closeEventContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      color: #fff;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+  }
+`;
+const BoardItemContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  @media screen and (max-width: 767px) {
+    height: auto;
   }
   .picture {
     width: 100%;
     height: 50%;
-    background-color: red;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .boardItemContainer {
     padding: 2rem;
+    @media screen and (max-width: 767px) {
+      padding: 1.2rem;
+    }
     .date {
       font-size: 1.4rem;
       color: #666;
@@ -44,7 +86,8 @@ const Container = styled.div`
       color: #e0b400;
       margin-bottom: 1.6rem;
       @media screen and (max-width: 767px) {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
       }
     }
     .desc {
@@ -56,7 +99,7 @@ const Container = styled.div`
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
-      margin-bottom: 4rem;
+      margin-bottom: 4%;
       @media screen and (max-width: 767px) {
         font-size: 1.4rem;
       }

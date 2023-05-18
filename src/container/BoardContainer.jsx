@@ -1,21 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import BoardItem from "../components/BoardItem";
+import { eventDatas } from "../lib/data/eventDatas";
 
 const BoardContainer = () => {
   return (
     <Container>
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
+      {eventDatas.map((eventData) => (
+        <BoardItem key={eventData.id} eventData={eventData} />
+      ))}
     </Container>
   );
 };
