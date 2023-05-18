@@ -25,7 +25,7 @@ const List = ({ postPerPage, page, products }) => {
 const Container = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   @media screen and (max-width: 767px) {
     grid-template-columns: repeat(2, 1fr);

@@ -23,7 +23,6 @@ const SubListPage = () => {
       .get("https://api.usvillage.co.kr/api/v1/rentals" + `${location.search}`)
       .then((response) => {
         if (response.status === 200) {
-          // setProducts(response.data.data);
           dispatch(setProductsWithRedux(response.data.data));
           urlChange();
         }
@@ -37,7 +36,7 @@ const SubListPage = () => {
   };
 
   // pagination
-  const [postPerPage] = useState(9); // 한 페이지에 보여질 아이템 수
+  const [postPerPage] = useState(12); // 한 페이지에 보여질 아이템 수
   const [page, setPage] = useState(1); // 현재 페이지. default 값으로 1
   const handlePageChange = (page) => setPage(page);
 

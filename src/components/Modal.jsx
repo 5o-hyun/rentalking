@@ -30,10 +30,9 @@ const Modal = ({ handleIsShowModal, subMenus }) => {
                   <Link
                     to={`/list?categoryId=${subMenu.id}`}
                     onClick={() => handleIsCloseModal(false)}
+                    key={subMenu.id}
                   >
-                    <li key={subMenu.id} className="category">
-                      {subMenu.nameEn}
-                    </li>
+                    <li className="category">{subMenu.nameEn}</li>
                   </Link>
                 ))}
                 <Link to={`/event`}>

@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const LIstItem = (props) => {
   const s3URL = "https://files.usvillage.co.kr";
-  // console.log(props);
   return (
     <Link to={`/list/${props.productId}`}>
       <Container>
@@ -41,7 +40,7 @@ const Container = styled.div`
   }
   @media screen and (max-width: 767px) {
     overflow: visible;
-    aspect-ratio: 1 / 1.5;
+    aspect-ratio: 1 / 1.3;
   }
   .listItemImgContainer {
     position: absolute;
