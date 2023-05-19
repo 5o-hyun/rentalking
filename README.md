@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+<p align="middle" >
+  <img width="300px;" src="/public/images/logo.png"/>
+</p>
+<h1 align="middle">렌탈킹</h1>
+<p align="middle">렌탈이 필요할떈, 제품을 한눈에 모아놓은 렌탈킹!</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+<img alt="npm-v6.14.8" src="https://img.shields.io/badge/npm-v8.15.0-aa96da" />
+<img alt="node-v12.19.0" src="https://img.shields.io/badge/node-v18.7.0-ffc7c7" />
+</p>
 
-## Available Scripts
+## 🏃 Preview
+<img width="100%;" src="/public/images/readme_iphone2.png"/>
 
-In the project directory, you can run:
+## 💡 Functions
+- 제품 목록
+- 제품 상세
+- 자동 할인율 및 보증금 계산
+- 소개 페이지
+- 이벤트 페이지
+- 문의 접수 (예정)
+- 렌탈 접수 (예정)
 
-### `npm start`
+## 👨‍💻 Tech Stacks
+<img width="100%;" src="/public/images/readme_skill.png"/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📌 Version
+<img alt="reduxjs/toolkit" src="https://img.shields.io/badge/reduxjs/toolkit-^1.9.2-ffbf3c?style=for-the-badge" /><br/>
+<img alt="axios" src="https://img.shields.io/badge/axios-^1.2.5-ffbf3c?style=for-the-badge" /><br/>
+<img alt="react-router-dom" src="https://img.shields.io/badge/react router dom-^6.7.0-ffbf3c?style=for-the-badge" /><br/>
+<img alt="styled-components" src="https://img.shields.io/badge/styled components-^5.3.6-ffbf3c?style=for-the-badge" /><br/>
+<img alt="swiper" src="https://img.shields.io/badge/swiper-^8.4.6-ffbf3c?style=for-the-badge" /><br/>
+<img alt="react-icons" src="https://img.shields.io/badge/react icons-^4.7.1-ffbf3c?style=for-the-badge" /><br/>
+<img alt="react-redux" src="https://img.shields.io/badge/react redux-^8.0.5-ffbf3c?style=for-the-badge" /><br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🎨 Tools
+- [크롬에서 JSON API 미리보기기능](https://chrome.google.com/webstore/detail/jsonview/gmegofmjomhknnokphhckolhcffdaihd)
+- 포스트맨
 
-### `npm test`
+## 📃 Reference
+- [영화 API 사용법](https://velog.io/@letgodchan0/TIL-%EC%98%81%ED%99%94-API-%EC%82%AC%EC%9A%A9%EB%B2%95)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 💫 License
+Copyright © 2023 SoHyun
