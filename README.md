@@ -38,8 +38,5 @@
 - [크롬에서 JSON API 미리보기기능](https://chrome.google.com/webstore/detail/jsonview/gmegofmjomhknnokphhckolhcffdaihd)
 - 포스트맨
 
-## 📃 Reference
-- [영화 API 사용법](https://velog.io/@letgodchan0/TIL-%EC%98%81%ED%99%94-API-%EC%82%AC%EC%9A%A9%EB%B2%95)
-
 ## 💫 License
 Copyright © 2023 SoHyun
